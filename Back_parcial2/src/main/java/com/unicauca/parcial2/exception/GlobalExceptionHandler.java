@@ -1,4 +1,4 @@
-package exception;
+package com.unicauca.parcial2.exception;
 
 import com.unicauca.parcial2.dto.auth.ErrorResponse;
 
