@@ -1,0 +1,25 @@
+package com.unicauca.parcial2.dto.auth;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+import java.util.Map;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class ErrorResponse {
+    @Builder.Default
+    private LocalDateTime timestamp = LocalDateTime.now();
+    private int status;
+    private String error;
+    private String mensaje;
+    private String path;
+    private Map<String, String> errores;
+}
