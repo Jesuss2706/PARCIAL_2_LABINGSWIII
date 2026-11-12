@@ -1,1 +1,183 @@
-/* You can add global styles to this file, and also import other style files */
+/* ==========================================================================
+   Clínica Piedra Azul — estilos globales
+   Bootstrap 5.3 + tokens de marca (misma identidad del proyecto Piedra Azul).
+   ========================================================================== */
+
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+/* ---------- Paleta / tokens de marca ---------- */
+:root {
+  --pa-navy-900: #132434;
+  --pa-navy-700: #1e3a52;
+  --pa-navy-500: #2c5476;
+  --pa-navy-200: #9db6cb;
+
+  --pa-gold: #c39240;
+  --pa-gold-600: #a9761f;
+  --pa-gold-100: #f3e8d2;
+
+  --pa-bg: #f4f4f2;
+  --pa-surface: #ffffff;
+  --pa-line: #e4e4e0;
+  --pa-ink: #1a1a18;
+  --pa-muted: #6e7378;
+
+  --pa-ease: cubic-bezier(0.23, 1, 0.32, 1);
+
+  /* Bootstrap con la identidad de la clínica */
+  --bs-primary: var(--pa-navy-900);
+  --bs-primary-rgb: 19, 36, 52;
+  --bs-body-bg: var(--pa-bg);
+  --bs-body-color: var(--pa-ink);
+  --bs-secondary-color: var(--pa-muted);
+  --bs-border-color: var(--pa-line);
+  --bs-link-color: var(--pa-navy-700);
+  --bs-link-hover-color: var(--pa-gold-600);
+  --bs-font-sans-serif: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --bs-border-radius: .625rem;
+  --bs-border-radius-lg: 1rem;
+  --bs-body-font-size: 1rem;
+  --bs-body-line-height: 1.65;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--bs-font-sans-serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Tipografía ---------- */
+.pa-display {
+  font-family: "Newsreader", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  color: var(--pa-navy-900);
+}
+.pa-display em { font-style: italic; }
+
+.pa-eyebrow {
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--pa-gold-600);
+}
+
+.pa-lead { color: var(--pa-muted); max-width: 62ch; }
+
+.pa-muted { color: var(--pa-muted) !important; }
+.pa-navy { color: var(--pa-navy-900) !important; }
+.pa-gold { color: var(--pa-gold-600) !important; }
+.bg-pa-surface { background-color: var(--pa-surface) !important; }
+
+/* ---------- Botones ---------- */
+.btn { --bs-btn-font-weight: 600; border-radius: 999px; padding: .6rem 1.4rem; }
+.btn-sm { padding: .4rem 1rem; }
+
+.btn-pa {
+  --bs-btn-color: #241a06;
+  --bs-btn-bg: var(--pa-gold);
+  --bs-btn-border-color: var(--pa-gold);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--pa-gold-600);
+  --bs-btn-hover-border-color: var(--pa-gold-600);
+  --bs-btn-active-bg: var(--pa-gold-600);
+  --bs-btn-active-border-color: var(--pa-gold-600);
+  --bs-btn-disabled-bg: var(--pa-gold-100);
+  --bs-btn-disabled-border-color: var(--pa-gold-100);
+  --bs-btn-disabled-color: var(--pa-muted);
+}
+
+.btn-pa-dark {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--pa-navy-900);
+  --bs-btn-border-color: var(--pa-navy-900);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--pa-navy-700);
+  --bs-btn-hover-border-color: var(--pa-navy-700);
+  --bs-btn-disabled-bg: var(--pa-navy-200);
+  --bs-btn-disabled-border-color: var(--pa-navy-200);
+}
+
+.btn-pa-outline {
+  --bs-btn-color: var(--pa-navy-900);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: var(--pa-line);
+  --bs-btn-hover-color: var(--pa-navy-900);
+  --bs-btn-hover-bg: #fff;
+  --bs-btn-hover-border-color: var(--pa-navy-500);
+}
+
+.btn { transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 160ms var(--pa-ease); }
+.btn:active { transform: scale(.97); }
+
+/* ---------- Superficies ---------- */
+.pa-card {
+  background: var(--pa-surface);
+  border: 1px solid var(--pa-line);
+  border-radius: var(--bs-border-radius-lg);
+}
+
+.pa-card-hover { transition: transform 220ms var(--pa-ease), box-shadow 220ms var(--pa-ease), border-color 220ms ease; }
+@media (hover: hover) and (pointer: fine) {
+  .pa-card-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 36px -18px rgba(19, 36, 52, .25);
+    border-color: var(--pa-navy-200);
+  }
+}
+
+.pa-section { padding-block: 3rem; }
+@media (min-width: 992px) { .pa-section { padding-block: 4.5rem; } }
+
+.pa-panel-title { font-size: 1rem; font-weight: 600; color: var(--pa-navy-900); }
+
+.pa-fieldset-label {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--pa-muted);
+  padding-bottom: .6rem;
+  border-bottom: 1px solid var(--pa-line);
+  margin-bottom: 1rem;
+}
+
+/* ---------- Formularios ---------- */
+.form-control, .form-select {
+  background-color: var(--pa-surface);
+  border-color: var(--pa-line);
+  border-radius: .55rem;
+  padding: .6rem .8rem;
+}
+.form-control:focus, .form-select:focus {
+  background-color: var(--pa-surface);
+  border-color: var(--pa-navy-500);
+  box-shadow: 0 0 0 .2rem rgba(44, 84, 118, .15);
+}
+.form-label { font-size: .85rem; font-weight: 600; color: var(--pa-ink); margin-bottom: .35rem; }
+.form-text { font-size: .78rem; }
+
+/* ---------- Animaciones globales ---------- */
+@keyframes pa-fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+.pa-animate-in { animation: pa-fade-up 320ms var(--pa-ease) both; }
+
+/* ---------- Accesibilidad ---------- */
+:focus-visible { outline: 2px solid var(--pa-navy-500); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+/* ---------- Transición entre páginas (View Transitions API) ---------- */
+::view-transition-old(root) { animation: 160ms ease both pa-vt-out; }
+::view-transition-new(root) { animation: 260ms var(--pa-ease) both pa-vt-in; }
+@keyframes pa-vt-out { to { opacity: 0; } }
+@keyframes pa-vt-in { from { opacity: 0; transform: translateY(6px); } }

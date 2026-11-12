@@ -1,0 +1,13 @@
+.pa-summary {
+  position: sticky;
+  top: 6rem;
+  background: var(--pa-navy-900);
+  color: #fff;
+  border-radius: var(--bs-border-radius-lg);
+  padding: 1.5rem;
+}
+.pa-summary .pa-eyebrow { color: var(--pa-gold); }
+.pa-summary-row { display: flex; justify-content: space-between; gap: 1rem; padding-block: .7rem; border-bottom: 1px solid rgba(255, 255, 255, .12); }
+.pa-summary-row:last-child { border-bottom: 0; }
+.pa-summary-row dt { font-weight: 500; font-size: .82rem; color: var(--pa-navy-200); display: flex; gap: .5rem; }
+.pa-summary-row dd { margin: 0; font-size: .88rem; font-weight: 600; text-align: right; }

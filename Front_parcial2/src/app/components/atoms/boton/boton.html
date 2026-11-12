@@ -1,0 +1,14 @@
+<button
+  [type]="tipo()"
+  class="btn"
+  [class]="'btn-pa' + (variante() === 'pa' ? '' : '-' + variante())"
+  [class.btn-sm]="pequeno()"
+  [class.w-100]="bloque()"
+  [disabled]="deshabilitado() || cargando()">
+  @if (cargando()) {
+    <span class="spinner-border spinner-border-sm me-1" aria-hidden="true"></span>
+  } @else if (icono()) {
+    <i class="bi me-1" [class]="icono()" aria-hidden="true"></i>
+  }
+  <ng-content />
+</button>

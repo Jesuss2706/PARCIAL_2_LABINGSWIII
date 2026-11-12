@@ -1,0 +1,13 @@
+.pa-section-title { font-size: clamp(1.5rem, 3.4vw, 2.1rem); max-width: 22ch; }
+.pa-service-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: .7rem;
+  background: var(--pa-bg);
+  color: var(--pa-gold-600);
+  font-size: 1.15rem;
+}
+.pa-service-title { font-size: 1.02rem; font-weight: 600; color: var(--pa-navy-900); }
+.pa-service-body { font-size: .89rem; color: var(--pa-muted); }

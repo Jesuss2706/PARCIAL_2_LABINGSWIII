@@ -1,0 +1,79 @@
+<div class="row g-4">
+  <div class="col-12 col-lg-7">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+      <p class="pa-fieldset-label">Paciente y médico</p>
+      <div class="row g-3 mb-4">
+        <div class="col-12">
+          <app-campo-formulario etiqueta="Paciente" para="c-pac" [obligatorio]="true" [control]="form.controls.pacienteId"
+                                [mensajes]="{ required: 'Selecciona un paciente.' }">
+            <select id="c-pac" class="form-select" formControlName="pacienteId">
+              <option [ngValue]="null" disabled>Selecciona un paciente…</option>
+              @for (p of pacientes(); track p.id) {
+                <option [ngValue]="p.id">{{ p.nombreCompleto }} · CC {{ p.cedula }}</option>
+              }
+            </select>
+          </app-campo-formulario>
+        </div>
+        <div class="col-12">
+          <app-campo-formulario etiqueta="Médico" para="c-med" [obligatorio]="true" [control]="form.controls.medicoId"
+                                [mensajes]="{ required: 'Selecciona un médico.' }">
+            <select id="c-med" class="form-select" formControlName="medicoId">
+              <option [ngValue]="null" disabled>Selecciona un médico…</option>
+              @for (m of medicos(); track m.id) {
+                <option [ngValue]="m.id">{{ m.nombreCompleto }} · {{ m.especialidad }}</option>
+              }
+            </select>
+          </app-campo-formulario>
+        </div>
+      </div>
+
+      <p class="pa-fieldset-label">Detalle de la cita</p>
+      <div class="row g-3 mb-4">
+        <div class="col-12 col-md-7">
+          <app-campo-formulario etiqueta="Fecha y hora" para="c-fecha" [obligatorio]="true" [control]="form.controls.fechaHora"
+                                [mensajes]="{ fechaNoFutura: 'La cita debe ser en una fecha y hora futura.' }">
+            <input id="c-fecha" type="datetime-local" class="form-control" formControlName="fechaHora" [min]="minimo" step="900">
+          </app-campo-formulario>
+        </div>
+        <div class="col-12">
+          <app-campo-formulario etiqueta="Motivo de la consulta" para="c-motivo" [obligatorio]="true" [control]="form.controls.motivo"
+                                [mensajes]="{ minlength: 'Describe el motivo con al menos 5 caracteres.' }">
+            <textarea id="c-motivo" class="form-control" rows="3" formControlName="motivo" maxlength="255"
+                      placeholder="Ej: Control general, dolor de cabeza frecuente…"></textarea>
+          </app-campo-formulario>
+          <div class="text-end small pa-muted mt-1">{{ largoMotivo() }}/255</div>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column flex-sm-row justify-content-end gap-2">
+        <app-boton variante="outline" (click)="cancelar.emit()">Cancelar</app-boton>
+        <app-boton tipo="submit" [cargando]="cargando()" icono="bi-calendar-plus">Crear cita</app-boton>
+      </div>
+    </form>
+  </div>
+
+  <!-- Resumen en vivo -->
+  <aside class="col-12 col-lg-5">
+    <div class="pa-summary">
+      <p class="pa-eyebrow mb-3">Resumen de la cita</p>
+      <dl class="mb-0">
+        <div class="pa-summary-row">
+          <dt><i class="bi bi-person"></i>Paciente</dt>
+          <dd>{{ pacienteSel()?.nombreCompleto ?? 'Sin seleccionar' }}</dd>
+        </div>
+        <div class="pa-summary-row">
+          <dt><i class="bi bi-person-badge"></i>Médico</dt>
+          <dd>{{ medicoSel()?.nombreCompleto ?? 'Sin seleccionar' }}</dd>
+        </div>
+        <div class="pa-summary-row">
+          <dt><i class="bi bi-clipboard2-pulse"></i>Especialidad</dt>
+          <dd>{{ medicoSel()?.especialidad ?? '—' }}</dd>
+        </div>
+        <div class="pa-summary-row">
+          <dt><i class="bi bi-door-open"></i>Consultorio</dt>
+          <dd>{{ medicoSel()?.consultorio ?? '—' }}</dd>
+        </div>
+      </dl>
+    </div>
+  </aside>
+</div>

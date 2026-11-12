@@ -1,0 +1,11 @@
+.pa-next {
+  border-radius: var(--bs-border-radius-lg);
+  padding: 1.4rem 1.5rem;
+  color: #fff;
+  background:
+    radial-gradient(circle at 90% 0%, rgba(195, 146, 64, .3), transparent 50%),
+    linear-gradient(150deg, var(--pa-navy-700), var(--pa-navy-900));
+}
+.pa-next .pa-eyebrow { color: var(--pa-gold); }
+.pa-next-date { font-family: "Newsreader", Georgia, serif; font-size: 1.5rem; }
+.pa-next-meta { color: var(--pa-navy-200); }

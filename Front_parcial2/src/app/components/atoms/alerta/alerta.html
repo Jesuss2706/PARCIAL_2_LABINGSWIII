@@ -1,0 +1,8 @@
+<div class="alert pa-alert d-flex align-items-start gap-2 py-2 small" [class]="'alert-' + tipo()"
+     [attr.role]="tipo() === 'danger' ? 'alert' : 'status'">
+  <i class="bi mt-1" [class]="icono()" aria-hidden="true"></i>
+  <div class="flex-grow-1"><ng-content /></div>
+  @if (cerrable()) {
+    <button type="button" class="btn-close btn-close-sm mt-1" aria-label="Cerrar" (click)="cerrar.emit()"></button>
+  }
+</div>

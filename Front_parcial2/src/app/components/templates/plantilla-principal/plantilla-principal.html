@@ -1,0 +1,20 @@
+<a class="pa-skip" href="#contenido">Saltar al contenido</a>
+
+<app-encabezado />
+
+@if (titulo()) {
+  <app-encabezado-pagina [titulo]="titulo()!" [eyebrow]="eyebrow()" [subtitulo]="subtitulo()" [icono]="icono()" />
+}
+
+<main id="contenido" class="pa-main">
+  <div [class.container]="ancho() !== 'completo'"
+       [class.pa-section]="ancho() !== 'completo'"
+       [class.pt-4]="ancho() !== 'completo'"
+       [class.pa-narrow]="ancho() === 'angosto'">
+    <div class="pa-animate-in">
+      <ng-content />
+    </div>
+  </div>
+</main>
+
+<app-pie-pagina />

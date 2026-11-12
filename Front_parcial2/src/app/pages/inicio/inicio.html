@@ -1,0 +1,36 @@
+<app-plantilla-principal ancho="completo">
+  <app-portada />
+
+  <section class="pa-section bg-pa-surface border-top border-bottom">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="pa-eyebrow mb-2">Nuestros servicios</p>
+        <h2 class="pa-display pa-section-title mx-auto mb-0">Atención completa, en un solo lugar</h2>
+      </div>
+      <div class="row g-3 g-lg-4">
+        @for (s of servicios; track s.titulo; let i = $index) {
+          <div class="col-12 col-sm-6 col-lg-3 pa-animate-in" [style.animation-delay.ms]="i * 80">
+            <article class="pa-card pa-card-hover h-100 p-4">
+              <span class="pa-service-icon mb-3"><i class="bi" [class]="s.icono" aria-hidden="true"></i></span>
+              <h3 class="pa-service-title mb-2">{{ s.titulo }}</h3>
+              <p class="pa-service-body mb-0">{{ s.texto }}</p>
+            </article>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="pa-section">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-4">
+        <div>
+          <p class="pa-eyebrow mb-2">Equipo médico</p>
+          <h2 class="pa-display pa-section-title mb-0">Conoce a nuestros profesionales</h2>
+        </div>
+        <a class="btn btn-pa-outline" routerLink="/medicos">Ver todos los médicos <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+      <app-galeria-medicos [medicos]="medicos()" [cargando]="cargando()" [conFiltro]="false" [limite]="4" />
+    </div>
+  </section>
+</app-plantilla-principal>

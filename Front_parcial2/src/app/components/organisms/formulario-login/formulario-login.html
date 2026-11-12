@@ -1,0 +1,30 @@
+@if (error()) {
+  <app-alerta tipo="danger">{{ error() }}</app-alerta>
+}
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+  <app-campo-formulario class="d-block mb-3" etiqueta="Usuario o cédula" para="l-user"
+                        [control]="form.controls.username" [obligatorio]="true"
+                        [mensajes]="{ required: 'Escribe tu usuario o número de cédula.' }">
+    <input id="l-user" class="form-control" formControlName="username" autocomplete="username"
+           placeholder="Ej: 1061000001">
+  </app-campo-formulario>
+
+  <app-campo-formulario class="d-block mb-4" etiqueta="Contraseña" para="l-pass"
+                        [control]="form.controls.password" [obligatorio]="true"
+                        [mensajes]="{ required: 'La contraseña es obligatoria.' }">
+    <div class="input-group">
+      <input id="l-pass" class="form-control" [type]="verClave() ? 'text' : 'password'"
+             formControlName="password" autocomplete="current-password">
+      <button class="btn btn-pa-outline px-3" type="button" style="border-radius: 0 .55rem .55rem 0"
+              [attr.aria-label]="verClave() ? 'Ocultar contraseña' : 'Mostrar contraseña'"
+              (click)="verClave.set(!verClave())">
+        <i class="bi" [class.bi-eye]="!verClave()" [class.bi-eye-slash]="verClave()"></i>
+      </button>
+    </div>
+  </app-campo-formulario>
+
+  <app-boton tipo="submit" variante="dark" [bloque]="true" [cargando]="cargando()" icono="bi-box-arrow-in-right">
+    Iniciar sesión
+  </app-boton>
+</form>

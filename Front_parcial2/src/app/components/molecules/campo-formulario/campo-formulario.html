@@ -1,0 +1,23 @@
+<div class="pa-field" [class.pa-field-error]="mostrarError()" [class.pa-field-ok]="valido()">
+  <label class="form-label" [attr.for]="para()">
+    {{ etiqueta() }}
+    @if (obligatorio()) { <span class="pa-gold" aria-hidden="true">*</span> }
+  </label>
+
+  <div class="pa-field-control">
+    <ng-content />
+    @if (verificando()) {
+      <span class="pa-field-status spinner-border spinner-border-sm" aria-hidden="true"></span>
+    } @else if (valido()) {
+      <i class="pa-field-status bi bi-check-circle-fill text-success" aria-hidden="true"></i>
+    }
+  </div>
+
+  @if (verificando()) {
+    <div class="form-text">Verificando disponibilidad…</div>
+  } @else if (mostrarError()) {
+    <div class="pa-field-msg" role="alert"><i class="bi bi-exclamation-circle me-1"></i>{{ mensaje() }}</div>
+  } @else if (ayuda()) {
+    <div class="form-text">{{ ayuda() }}</div>
+  }
+</div>

@@ -1,0 +1,27 @@
+@if (cargando()) {
+  <app-spinner texto="Cargando médicos…" />
+} @else {
+  @if (conFiltro() && especialidades().length > 1) {
+    <div class="pa-chips mb-4" role="group" aria-label="Filtrar por especialidad">
+      <button type="button" class="pa-chip" [class.is-on]="!filtro()" (click)="filtro.set(null)">Todas</button>
+      @for (e of especialidades(); track e) {
+        <button type="button" class="pa-chip" [class.is-on]="filtro() === e" (click)="filtro.set(e)">{{ e }}</button>
+      }
+    </div>
+  }
+
+  <div class="row g-3 g-lg-4">
+    @for (m of visibles(); track m.id; let i = $index) {
+      <div class="col-12 col-sm-6 col-lg-4 col-xl-3 pa-animate-in" [style.animation-delay.ms]="i * 60">
+        <app-tarjeta-medico [medico]="m" />
+      </div>
+    } @empty {
+      <div class="col-12">
+        <div class="pa-card p-5 text-center pa-muted">
+          <i class="bi bi-person-x fs-2 d-block mb-2" style="color: var(--pa-navy-200)"></i>
+          No hay médicos disponibles por ahora.
+        </div>
+      </div>
+    }
+  </div>
+}

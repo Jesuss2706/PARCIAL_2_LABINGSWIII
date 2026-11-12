@@ -1,0 +1,13 @@
+.pa-login { box-shadow: 0 30px 60px -30px rgba(19, 36, 52, .3); }
+.pa-login-title { font-size: clamp(1.5rem, 3vw, 1.95rem); }
+.pa-login-side {
+  align-items: flex-end;
+  padding: 2.5rem;
+  color: var(--pa-navy-200);
+  background:
+    radial-gradient(circle at 20% 10%, rgba(195, 146, 64, .25), transparent 45%),
+    linear-gradient(160deg, var(--pa-navy-700), var(--pa-navy-900));
+}
+.pa-login-side h2 { font-size: 1.7rem; }
+.pa-login-side i { color: var(--pa-gold); }
+.pa-login-logo { display: inline-grid; place-items: center; width: 4.5rem; height: 4.5rem; border-radius: 1.2rem; background: var(--pa-bg); }

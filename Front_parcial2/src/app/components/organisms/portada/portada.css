@@ -1,0 +1,31 @@
+.pa-hero { padding-block: 3rem 4rem; }
+@media (min-width: 992px) { .pa-hero { padding-block: 5rem 6rem; } }
+.pa-hero-title { font-size: clamp(2.1rem, 5.2vw, 3.4rem); max-width: 15ch; }
+.pa-stats { border-top: 1px solid var(--pa-line); padding-top: 1.5rem; max-width: 30rem; }
+.pa-stat-value { font-family: "Newsreader", Georgia, serif; font-size: 1.85rem; color: var(--pa-navy-900); line-height: 1; }
+.pa-stat-label { font-size: .78rem; font-weight: 500; color: var(--pa-muted); }
+
+.pa-figure { position: relative; max-width: 440px; margin-inline: auto; }
+.pa-figure-svg { width: 100%; height: auto; display: block; filter: drop-shadow(0 26px 40px rgba(19, 36, 52, .18)); }
+.pa-cross { transform-origin: 160px 156px; animation: pa-breathe 3.2s ease-in-out infinite; }
+@keyframes pa-breathe { 50% { transform: scale(1.06); } }
+.pa-pulse { stroke-dasharray: 320; stroke-dashoffset: 320; animation: pa-draw 2.4s var(--pa-ease) .3s forwards; }
+@keyframes pa-draw { to { stroke-dashoffset: 0; } }
+
+.pa-float {
+  position: absolute;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--pa-navy-900);
+  padding: .55rem .9rem;
+  box-shadow: 0 14px 30px -14px rgba(19, 36, 52, .3);
+  animation: pa-float 4s ease-in-out infinite;
+}
+.pa-float-1 { top: 12%; left: -4%; }
+.pa-float-2 { bottom: 10%; right: -4%; animation-delay: -2s; }
+@keyframes pa-float { 50% { transform: translateY(-8px); } }
+@media (max-width: 991.98px) {
+  .pa-figure { max-width: 300px; }
+  .pa-float-1 { left: 0; }
+  .pa-float-2 { right: 0; }
+}

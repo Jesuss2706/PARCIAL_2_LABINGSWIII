@@ -47,7 +47,7 @@ public class SecurityConfig {
                         .accessDeniedHandler(accessDeniedHandler))            // 403
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                        .requestMatchers("/api/auth/login", "/api/public/**", "/error").permitAll()
+                        .requestMatchers("/api/auth/login", "/api/auth/registro", "/api/auth/existe/**", "/api/public/**", "/error").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/paciente/**").hasRole("PACIENTE")
                         .anyRequest().authenticated())

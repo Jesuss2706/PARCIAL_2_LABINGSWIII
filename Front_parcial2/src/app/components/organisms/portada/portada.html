@@ -1,0 +1,49 @@
+<header class="pa-hero">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-12 col-lg-6 pa-animate-in">
+        <p class="pa-eyebrow mb-3"><i class="bi bi-plus-square-fill me-1"></i>Clínica Piedra Azul · Popayán</p>
+        <h1 class="pa-display pa-hero-title mb-4">Tu salud, en manos que <em>escuchan</em> antes de tratar.</h1>
+        <p class="pa-lead mb-4">
+          Médicos generales y especialistas en un mismo lugar. Consulta nuestro equipo y revisa tus citas
+          médicas en línea, cuando quieras.
+        </p>
+        <div class="d-flex flex-column flex-sm-row gap-2 gap-sm-3 mb-5">
+          <a class="btn btn-pa" routerLink="/medicos"><i class="bi bi-heart-pulse me-1"></i>Conocer a los médicos</a>
+          @if (auth.isAuthenticated()) {
+            <a class="btn btn-pa-outline" [routerLink]="auth.inicioPorRol()">Ir a mi panel</a>
+          } @else {
+            <a class="btn btn-pa-outline" routerLink="/login">Consultar mis citas</a>
+          }
+        </div>
+        <dl class="row g-4 pa-stats mb-0">
+          <div class="col-auto"><dd class="pa-stat-value mb-1">15+</dd><dt class="pa-stat-label">Años cuidando familias</dt></div>
+          <div class="col-auto"><dd class="pa-stat-value mb-1">6</dd><dt class="pa-stat-label">Especialidades</dt></div>
+          <div class="col-auto"><dd class="pa-stat-value mb-1">24/7</dd><dt class="pa-stat-label">Urgencias</dt></div>
+        </dl>
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <figure class="pa-figure mb-0" aria-hidden="true">
+          <svg viewBox="0 0 320 300" class="pa-figure-svg">
+            <defs>
+              <linearGradient id="paA" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#26445f" /><stop offset="100%" stop-color="#132434" />
+              </linearGradient>
+              <linearGradient id="paB" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0%" stop-color="#40658a" /><stop offset="100%" stop-color="#5d83a8" />
+              </linearGradient>
+            </defs>
+            <path d="M160 20 280 88v136L160 292 40 224V88z" fill="url(#paA)" />
+            <path d="M160 62 242 108v92l-82 46-82-46v-92z" fill="url(#paB)" opacity=".55" />
+            <path d="M148 110h24v34h34v24h-34v34h-24v-34h-34v-24h34z" fill="#f4f4f2" class="pa-cross" />
+            <path class="pa-pulse" d="M58 230h50l14-26 18 48 16-34 10 12h96" fill="none" stroke="#c39240"
+                  stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <figcaption class="pa-float pa-float-1 pa-card"><i class="bi bi-calendar-check pa-gold me-2"></i>Citas en línea</figcaption>
+          <figcaption class="pa-float pa-float-2 pa-card"><i class="bi bi-shield-check pa-gold me-2"></i>Datos protegidos</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</header>

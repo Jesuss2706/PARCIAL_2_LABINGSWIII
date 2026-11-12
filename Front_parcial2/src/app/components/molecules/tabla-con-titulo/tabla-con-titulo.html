@@ -1,0 +1,21 @@
+<section class="pa-card overflow-hidden">
+  <header class="pa-tt-header">
+    <div class="d-flex align-items-center gap-3">
+      <span class="pa-tt-icon"><i class="bi" [class]="icono()" aria-hidden="true"></i></span>
+      <div>
+        <h2 class="pa-tt-title mb-0">
+          {{ titulo() }}
+          @if (!cargando()) {
+            <span class="pa-tt-count">{{ filas().length }}</span>
+          }
+        </h2>
+        @if (subtitulo()) {
+          <p class="pa-tt-sub mb-0">{{ subtitulo() }}</p>
+        }
+      </div>
+    </div>
+    <div class="pa-tt-actions"><ng-content select="[acciones]" /></div>
+  </header>
+
+  <app-tabla [columnas]="columnas()" [filas]="filas()" [cargando]="cargando()" [mensajeVacio]="mensajeVacio()" />
+</section>

@@ -1,0 +1,33 @@
+<app-plantilla-principal titulo="Mis citas" eyebrow="Portal del paciente" icono="bi-calendar-check"
+                         [subtitulo]="'Hola, ' + (auth.nombre() ?? '') + '. Aquí están todas tus citas médicas.'">
+  @if (error()) {
+    <app-alerta tipo="danger">{{ error() }}</app-alerta>
+  }
+
+  <div class="row g-3 mb-4">
+    <div class="col-12 col-lg-6">
+      <div class="pa-next h-100">
+        <p class="pa-eyebrow mb-2">Tu próxima cita</p>
+        @if (siguiente(); as c) {
+          <p class="pa-next-date mb-1">{{ fecha(c.fechaHora) }} · {{ hora(c.fechaHora) }}</p>
+          <p class="mb-0"><i class="bi bi-person-badge me-2"></i>{{ c.medicoNombre }} — {{ c.especialidad }}</p>
+          @if (c.consultorio) {
+            <p class="mb-0 small pa-next-meta"><i class="bi bi-door-open me-2"></i>Consultorio {{ c.consultorio }}</p>
+          }
+        } @else {
+          <p class="pa-next-date mb-1">Sin citas próximas</p>
+          <p class="mb-0 small pa-next-meta">Comunícate con la clínica para agendar una nueva cita.</p>
+        }
+      </div>
+    </div>
+    <div class="col-6 col-lg-3">
+      <app-tarjeta-dato icono="bi-calendar2-week" [valor]="citas().length" etiqueta="Citas en total" />
+    </div>
+    <div class="col-6 col-lg-3">
+      <app-tarjeta-dato icono="bi-hourglass-split" [valor]="proximas().length" etiqueta="Próximas" />
+    </div>
+  </div>
+
+  <app-listado-citas [citas]="citas()" [cargando]="cargando()" [mostrarPaciente]="false"
+                     titulo="Historial de mis citas" mensajeVacio="Todavía no tienes citas registradas." />
+</app-plantilla-principal>

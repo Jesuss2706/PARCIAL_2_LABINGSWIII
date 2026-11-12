@@ -1,0 +1,11 @@
+<article class="pa-card pa-card-hover h-100 p-4 text-center">
+  <div class="pa-doc-avatar mx-auto mb-3">
+    <span>{{ iniciales() }}</span>
+    <i class="bi pa-doc-badge" [class]="icono()" aria-hidden="true"></i>
+  </div>
+  <h3 class="pa-doc-name mb-1">{{ medico().nombreCompleto }}</h3>
+  <p class="pa-doc-spec mb-2">{{ medico().especialidad }}</p>
+  @if (medico().consultorio) {
+    <p class="pa-doc-meta mb-0"><i class="bi bi-door-open me-1"></i>Consultorio {{ medico().consultorio }}</p>
+  }
+</article>

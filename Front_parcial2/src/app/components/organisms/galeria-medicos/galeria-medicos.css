@@ -1,0 +1,13 @@
+.pa-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+.pa-chip {
+  border: 1px solid var(--pa-line);
+  background: var(--pa-surface);
+  color: var(--pa-muted);
+  border-radius: 999px;
+  padding: .4rem .95rem;
+  font-size: .84rem;
+  font-weight: 600;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+.pa-chip:hover { border-color: var(--pa-navy-500); color: var(--pa-navy-900); }
+.pa-chip.is-on { background: var(--pa-navy-900); border-color: var(--pa-navy-900); color: #fff; }

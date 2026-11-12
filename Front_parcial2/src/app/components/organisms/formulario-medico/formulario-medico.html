@@ -1,0 +1,59 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+  <p class="pa-fieldset-label">Identificación</p>
+  <div class="row g-3 mb-4">
+    <div class="col-12 col-md-6">
+      <app-campo-formulario etiqueta="Número de cédula" para="m-cedula" [obligatorio]="true"
+                            [control]="form.controls.cedula" [mostrarValido]="true"
+                            ayuda="Se verifica en línea que no esté registrada."
+                            [mensajes]="{ pattern: 'Debe tener entre 6 y 10 dígitos.', cedulaRegistrada: 'Ya existe un médico con esta cédula.' }">
+        <input id="m-cedula" class="form-control" inputmode="numeric" formControlName="cedula" maxlength="10">
+      </app-campo-formulario>
+    </div>
+    <div class="col-12 col-md-6">
+      <app-campo-formulario etiqueta="Especialidad" para="m-esp" [obligatorio]="true" [control]="form.controls.especialidad"
+                            [mensajes]="{ required: 'Selecciona una especialidad.' }">
+        <select id="m-esp" class="form-select" formControlName="especialidad">
+          <option value="" disabled>Selecciona…</option>
+          @for (e of especialidades; track e) { <option [value]="e">{{ e }}</option> }
+        </select>
+      </app-campo-formulario>
+    </div>
+    <div class="col-12 col-md-6">
+      <app-campo-formulario etiqueta="Nombres" para="m-nombres" [obligatorio]="true" [control]="form.controls.nombres">
+        <input id="m-nombres" class="form-control" formControlName="nombres" autocomplete="off">
+      </app-campo-formulario>
+    </div>
+    <div class="col-12 col-md-6">
+      <app-campo-formulario etiqueta="Apellidos" para="m-apellidos" [obligatorio]="true" [control]="form.controls.apellidos">
+        <input id="m-apellidos" class="form-control" formControlName="apellidos" autocomplete="off">
+      </app-campo-formulario>
+    </div>
+  </div>
+
+  <p class="pa-fieldset-label">Contacto</p>
+  <div class="row g-3 mb-4">
+    <div class="col-12 col-md-6">
+      <app-campo-formulario etiqueta="Correo electrónico" para="m-email" [obligatorio]="true" [control]="form.controls.email">
+        <input id="m-email" type="email" class="form-control" formControlName="email" placeholder="nombre@piedraazul.com">
+      </app-campo-formulario>
+    </div>
+    <div class="col-6 col-md-3">
+      <app-campo-formulario etiqueta="Teléfono" para="m-tel" [obligatorio]="true" [control]="form.controls.telefono"
+                            [mensajes]="{ pattern: 'Entre 7 y 10 dígitos.' }">
+        <input id="m-tel" class="form-control" inputmode="tel" formControlName="telefono" maxlength="10">
+      </app-campo-formulario>
+    </div>
+    <div class="col-6 col-md-3">
+      <app-campo-formulario etiqueta="Consultorio" para="m-cons" [control]="form.controls.consultorio">
+        <input id="m-cons" class="form-control" formControlName="consultorio" placeholder="Ej: 204">
+      </app-campo-formulario>
+    </div>
+  </div>
+
+  <div class="d-flex flex-column flex-sm-row justify-content-end gap-2">
+    <app-boton variante="outline" (click)="cancelar.emit()">Cancelar</app-boton>
+    <app-boton tipo="submit" [cargando]="cargando()" [deshabilitado]="form.pending" icono="bi-check2-circle">
+      Registrar médico
+    </app-boton>
+  </div>
+</form>

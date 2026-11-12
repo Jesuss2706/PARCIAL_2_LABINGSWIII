@@ -1,0 +1,23 @@
+<app-plantilla-principal titulo="Citas médicas" eyebrow="Administración" icono="bi-calendar2-week"
+                         subtitulo="Citas de todos los pacientes de la clínica.">
+  @if (exito()) {
+    <app-alerta tipo="success" [cerrable]="true" (cerrar)="exito.set(null)">{{ exito() }}</app-alerta>
+  }
+  @if (error()) {
+    <app-alerta tipo="danger">{{ error() }}</app-alerta>
+  }
+
+  <div class="row g-3 mb-4">
+    <div class="col-6 col-lg-3"><app-tarjeta-dato icono="bi-calendar2-week" [valor]="citas().length" etiqueta="Citas registradas" /></div>
+    <div class="col-6 col-lg-3"><app-tarjeta-dato icono="bi-hourglass-split" [valor]="proximas()" etiqueta="Próximas" /></div>
+    <div class="col-6 col-lg-3"><app-tarjeta-dato icono="bi-people" [valor]="pacientesConCita()" etiqueta="Pacientes con cita" /></div>
+    <div class="col-6 col-lg-3"><app-tarjeta-dato icono="bi-person-badge" [valor]="medicosConCita()" etiqueta="Médicos con agenda" /></div>
+  </div>
+
+  <app-listado-citas [citas]="filtradas()" [cargando]="cargando()" titulo="Todas las citas">
+    <div class="d-flex flex-column flex-sm-row gap-2">
+      <app-buscador placeholder="Buscar paciente, médico…" [(texto)]="busqueda" />
+      <a class="btn btn-pa btn-sm text-nowrap" routerLink="/admin/citas/nueva"><i class="bi bi-plus-lg me-1"></i>Nueva cita</a>
+    </div>
+  </app-listado-citas>
+</app-plantilla-principal>

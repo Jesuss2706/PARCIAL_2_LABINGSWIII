@@ -1,0 +1,43 @@
+<div class="table-responsive">
+  <table class="table table-hover align-middle mb-0 pa-table">
+    <thead>
+      <tr>
+        @for (col of columnas(); track col.campo) {
+          <th scope="col" [class]="claseResponsive(col)">{{ col.titulo }}</th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @if (cargando()) {
+        @for (s of skeleton(); track s) {
+          <tr class="pa-skeleton-row">
+            @for (col of columnas(); track col.campo) {
+              <td [class]="claseResponsive(col)"><span class="pa-skeleton"></span></td>
+            }
+          </tr>
+        }
+      } @else {
+        @for (fila of filas(); track id(fila, $index); let i = $index) {
+          <tr class="pa-row" [style.--i]="i">
+            @for (col of columnas(); track col.campo) {
+              <td [class]="claseResponsive(col)" [class.fw-semibold]="col.destacada" [class.text-nowrap]="col.sinSalto || col.tipo === 'fecha' || col.tipo === 'hora' || col.tipo === 'fecha-hora'">
+                @if (col.tipo === 'estado') {
+                  <span [class]="claseEstado(fila, col)">{{ celda(fila, col) }}</span>
+                } @else {
+                  {{ celda(fila, col) }}
+                }
+              </td>
+            }
+          </tr>
+        } @empty {
+          <tr>
+            <td [attr.colspan]="columnas().length" class="pa-empty">
+              <i class="bi bi-clipboard2-x" aria-hidden="true"></i>
+              <span>{{ mensajeVacio() }}</span>
+            </td>
+          </tr>
+        }
+      }
+    </tbody>
+  </table>
+</div>

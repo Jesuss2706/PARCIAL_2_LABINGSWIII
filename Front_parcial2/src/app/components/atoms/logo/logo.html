@@ -1,0 +1,13 @@
+<span class="pa-logo" [class]="'pa-logo-' + tamano()">
+  <svg class="pa-logo-mark" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 2 21 7v10l-9 5-9-5V7z" fill="var(--pa-navy-900)"/>
+    <path d="M12 6.2 16.9 9v6l-4.9 2.8L7.1 15V9z" fill="var(--pa-navy-500)"/>
+    <path d="M11 8.6h2v2.4h2.4v2H13v2.4h-2V13H8.6v-2H11z" fill="var(--pa-gold)"/>
+  </svg>
+  @if (mostrarTexto()) {
+    <span class="pa-logo-text">
+      <span class="pa-logo-name">Piedra Azul</span>
+      <span class="pa-logo-sub">Clínica</span>
+    </span>
+  }
+</span>

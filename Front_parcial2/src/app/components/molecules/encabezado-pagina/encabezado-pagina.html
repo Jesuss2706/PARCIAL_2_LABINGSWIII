@@ -1,0 +1,12 @@
+<header class="pa-pageheader">
+  <div class="container d-flex align-items-center gap-3">
+    @if (icono()) {
+      <span class="pa-ph-icon d-none d-sm-inline-grid"><i class="bi" [class]="icono()" aria-hidden="true"></i></span>
+    }
+    <div>
+      @if (eyebrow()) { <p class="pa-eyebrow mb-1">{{ eyebrow() }}</p> }
+      <h1 class="pa-display pa-ph-title mb-1">{{ titulo() }}</h1>
+      @if (subtitulo()) { <p class="pa-lead mb-0">{{ subtitulo() }}</p> }
+    </div>
+  </div>
+</header>

@@ -1,0 +1,11 @@
+.pa-logo { display: inline-flex; align-items: center; gap: .55rem; }
+.pa-logo-mark { width: 1.75rem; height: 1.75rem; flex: none; transition: transform 400ms var(--pa-ease); }
+.pa-logo:hover .pa-logo-mark { transform: rotate(-12deg) scale(1.05); }
+.pa-logo-text { display: flex; flex-direction: column; line-height: 1; }
+.pa-logo-name { font-family: "Newsreader", Georgia, serif; font-size: 1.2rem; color: var(--pa-navy-900); letter-spacing: -.01em; }
+.pa-logo-sub { font-size: .62rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--pa-gold-600); margin-top: .2rem; }
+
+.pa-logo-sm .pa-logo-mark { width: 1.35rem; height: 1.35rem; }
+.pa-logo-sm .pa-logo-name { font-size: 1.05rem; }
+.pa-logo-lg .pa-logo-mark { width: 3rem; height: 3rem; }
+.pa-logo-lg .pa-logo-name { font-size: 1.6rem; }

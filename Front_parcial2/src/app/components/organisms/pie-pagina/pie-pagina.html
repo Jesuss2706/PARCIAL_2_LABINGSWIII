@@ -1,0 +1,52 @@
+<footer class="pa-footer">
+  <div class="container">
+    <div class="row g-4 g-lg-5 pb-4">
+      <div class="col-12 col-lg-4">
+        <app-logo class="d-inline-block mb-3" />
+        <p class="pa-footer-text mb-3">
+          Atención médica integral en Popayán: medicina general y especialistas, con agendamiento sencillo y
+          seguimiento de cada paciente.
+        </p>
+        <div class="d-flex gap-2">
+          <a class="pa-social" href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a class="pa-social" href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a class="pa-social" href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-2">
+        <h2 class="pa-footer-title">Clínica</h2>
+        <ul class="pa-footer-list">
+          <li><a routerLink="/">Inicio</a></li>
+          <li><a routerLink="/medicos">Nuestros médicos</a></li>
+          <li><a routerLink="/login">Portal de pacientes</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <h2 class="pa-footer-title">Horario</h2>
+        <ul class="pa-footer-list">
+          <li><i class="bi bi-clock me-2"></i>Lun – Vie · 7:00 – 18:00</li>
+          <li><i class="bi bi-clock me-2"></i>Sábados · 8:00 – 13:00</li>
+          <li><i class="bi bi-hospital me-2"></i>Urgencias 24 horas</li>
+        </ul>
+      </div>
+
+      <div class="col-12 col-lg-3">
+        <h2 class="pa-footer-title">Contacto</h2>
+        <ul class="pa-footer-list">
+          <li><i class="bi bi-geo-alt me-2"></i>Calle 5 # 12-34, Popayán</li>
+          <li><i class="bi bi-telephone me-2"></i><a href="tel:+576025550192">(602) 555 0192</a></li>
+          <li><i class="bi bi-envelope me-2"></i><a href="mailto:citas@piedraazul.co">citas&#64;piedraazul.co</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="pa-footer-rule">
+
+    <div class="d-flex flex-column flex-sm-row justify-content-between gap-2 pa-footer-legal">
+      <span>&copy; {{ anio }} Clínica Piedra Azul. Todos los derechos reservados.</span>
+      <span>Laboratorio de Ingeniería del Software III · Unicauca</span>
+    </div>
+  </div>
+</footer>

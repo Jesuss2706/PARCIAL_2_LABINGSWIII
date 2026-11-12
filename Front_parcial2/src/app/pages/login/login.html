@@ -1,0 +1,38 @@
+<app-plantilla-principal ancho="angosto">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-11">
+      <div class="pa-card pa-login overflow-hidden">
+        <div class="row g-0">
+          <div class="col-12 col-lg-5 pa-login-side d-none d-lg-flex">
+            <div>
+              <span class="pa-login-logo"><app-logo tamano="lg" [mostrarTexto]="false" /></span>
+              <h2 class="pa-display text-white mt-4 mb-3">Bienvenido a tu <em>clínica</em> en línea.</h2>
+              <ul class="list-unstyled small mb-0">
+                <li class="mb-2"><i class="bi bi-check2-circle me-2"></i>Pacientes: consulta tus citas.</li>
+                <li class="mb-2"><i class="bi bi-check2-circle me-2"></i>Administración: gestiona médicos, pacientes y citas.</li>
+                <li><i class="bi bi-shield-lock me-2"></i>Acceso seguro con JWT.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-lg-7 p-4 p-lg-5">
+            <p class="pa-eyebrow mb-2">Acceso</p>
+            <h1 class="pa-display pa-login-title mb-4">Inicia sesión</h1>
+
+            @if (expirado) {
+              <app-alerta tipo="warning">Tu sesión venció o no es válida. Ingresa de nuevo.</app-alerta>
+            }
+
+            <app-formulario-login [cargando]="cargando()" [error]="error()" (enviar)="iniciarSesion($event)" />
+
+            <p class="text-center small pa-muted mt-4 mb-1">
+              ¿Aún no tienes cuenta? <a routerLink="/registro">Crear cuenta de paciente</a>
+            </p>
+            <p class="text-center small pa-muted mb-0">
+              ¿Solo quieres conocer al equipo? <a routerLink="/medicos">Ver médicos</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-plantilla-principal>

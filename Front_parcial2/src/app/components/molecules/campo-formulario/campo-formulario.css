@@ -1,0 +1,15 @@
+.pa-field-control { position: relative; }
+.pa-field-status {
+  position: absolute;
+  right: .8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--pa-navy-500);
+}
+.pa-field-msg { font-size: .78rem; color: #b42318; margin-top: .3rem; animation: pa-fade-up 200ms var(--pa-ease) both; }
+
+:host ::ng-deep .pa-field-error .form-control,
+:host ::ng-deep .pa-field-error .form-select { border-color: #d92d20; }
+:host ::ng-deep .pa-field-error .form-control:focus,
+:host ::ng-deep .pa-field-error .form-select:focus { box-shadow: 0 0 0 .2rem rgba(217, 45, 32, .12); }
+:host ::ng-deep .pa-field-ok .form-control { border-color: #3a8a55; padding-right: 2.2rem; }

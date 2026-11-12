@@ -1,0 +1,25 @@
+<app-plantilla-principal titulo="Nuestros médicos" eyebrow="Equipo médico" icono="bi-heart-pulse"
+                         subtitulo="Profesionales de medicina general y especialistas listos para atenderte.">
+  @if (error()) {
+    <app-alerta tipo="danger">{{ error() }}</app-alerta>
+  }
+
+  <div class="d-flex justify-content-end mb-3">
+    <div class="btn-group" role="group" aria-label="Tipo de vista">
+      <button type="button" class="btn btn-sm" [class.btn-pa-dark]="vista() === 'tarjetas'"
+              [class.btn-pa-outline]="vista() !== 'tarjetas'" (click)="vista.set('tarjetas')">
+        <i class="bi bi-grid me-1"></i>Tarjetas
+      </button>
+      <button type="button" class="btn btn-sm" [class.btn-pa-dark]="vista() === 'tabla'"
+              [class.btn-pa-outline]="vista() !== 'tabla'" (click)="vista.set('tabla')">
+        <i class="bi bi-list-ul me-1"></i>Tabla
+      </button>
+    </div>
+  </div>
+
+  @if (vista() === 'tarjetas') {
+    <app-galeria-medicos [medicos]="medicos()" [cargando]="cargando()" />
+  } @else {
+    <app-listado-medicos [medicos]="medicos()" [cargando]="cargando()" titulo="Directorio médico" />
+  }
+</app-plantilla-principal>
